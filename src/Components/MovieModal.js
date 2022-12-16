@@ -1,5 +1,8 @@
 import { Modal, Button } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
+
+
+//link for the image from env file
 const API_IMG = process.env.REACT_APP_API_IMG;
 
 const MovieModal = ({ title, poster_path, vote_average, release_date, overview }) => {
@@ -27,7 +30,7 @@ const MovieModal = ({ title, poster_path, vote_average, release_date, overview }
     }, [poster_path])
 
     return (
-        <div className="card text-center bg-secondary mb-3">
+        <div className="card text-center  mb-3">
             <div className="card-body">
                 <img className="card-img-top" src={imgurl} alt={title} />
                 <div className="card-body">
