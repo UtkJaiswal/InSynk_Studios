@@ -62,6 +62,18 @@ function App() {
 
   },[])
 
+  //function to fetch more movie on scrolling
+  const fetchMoreData = () => {
+    setPage(page+1);
+    fetch(API_URL)
+    .then((res)=>res.json())
+    .then(data=>{
+      // console.log(data);
+      // setTotalResults(data.total_results)
+      setMovies(movies.concat(data.results));
+    })
+  };
+
   //function to search movie
   const searchMovie = async(e)=>{
     e.preventDefault();
