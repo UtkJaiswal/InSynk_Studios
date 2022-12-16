@@ -42,6 +42,7 @@ function App() {
   useEffect(() => {
     //fetchData function is used for API calling
     async function fetchData() {
+      console.log("url1",url1)
       const res = await fetch(url1)
 
       //if movies exists
