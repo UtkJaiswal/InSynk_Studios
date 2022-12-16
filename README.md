@@ -10,6 +10,8 @@
 
 -   On clicking `View More` of one of the cards a new modal opens displaying more information about the movie
 
+-   Each part of the code is well explained with proper comments
+
 
 
 ## Steps to run the project
