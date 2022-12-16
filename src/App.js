@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      Working...
+      {process.env.REACT_APP_API_URL}
     </div>
   );
 }
