@@ -28,8 +28,12 @@ function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
 
+  const API_SEARCH=process.env.REACT_APP_API_SEARCH;
+
+
   //url1 is the url to fetch the list of movies
-  const url1 = API_URL + "?api_key=" + API_KEY + "&sort_by=primary_release_date.desc&page=" + page;
+  const url1 = API_URL + "/?api_key=" + API_KEY + "&sort_by=primary_release_date.desc&page=" + page;
+
 
 
 
@@ -78,13 +82,13 @@ function App() {
   //function to search movie
   const searchMovie = async(e)=>{
     e.preventDefault();
-    console.log("Searching");
+    console.log("Searching",query);
     try{
-      const url=API_URL+"?api_key="+API_KEY+"&query="+query+"&sort_by=primary_release_date.desc"
+      const url=API_SEARCH+"/?api_key="+API_KEY+"&query="+query+"&sort_by=primary_release_date.desc"
       // const url=`https://api.themoviedb.org/3/search/movie?api_key=1b7cbfe3c55ec3b24cb5d15d9c16a490&query=${query}&sort_by=primary_release_date.desc`;
       const res= await fetch(url);
       const data= await res.json();
-      console.log(data);
+      console.log("Searching movie is going on",data);
       setMovies(data.results);
     }
     catch(e){
@@ -116,7 +120,7 @@ function App() {
               aria-label="search"
               name="query"
               value={query} onChange={changeHandler}></FormControl>
-              <Button variant="secondary" type="submit">Search</Button>
+              {/* <Button variant="secondary" type="submit">Search</Button> */}
             </Form>
           </Navbar.Collapse>
       </Container>
@@ -125,8 +129,8 @@ function App() {
       {movies.length > 0 ?(
         <div className="container">
         <div className="grid">
-          {movies.map((movieReq)=>
-          <MovieModal key={movieReq.id+Math.random(10)} {...movieReq}/>)}
+          {movies.map((movie)=>
+          <MovieModal key={movie.id+Math.random(10)} {...movie}/>)}
             </div>
     </div>
       ):(
