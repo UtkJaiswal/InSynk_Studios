@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar,Container,Nav,Form, FormControl,Button } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
+import MovieModal from './Components/MovieModal';
 
 function App() {
   //movies stores the movies to be displayed;
@@ -115,11 +116,23 @@ function App() {
               aria-label="search"
               name="query"
               value={query} onChange={changeHandler}></FormControl>
-              {/* <Button variant="secondary" type="submit">Search</Button> */}
+              <Button variant="secondary" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse>
       </Container>
     </Navbar>
+    <div>
+      {movies.length > 0 ?(
+        <div className="container">
+        <div className="grid">
+          {movies.map((movieReq)=>
+          <MovieModal key={movieReq.id+Math.random(10)} {...movieReq}/>)}
+            </div>
+    </div>
+      ):(
+        <h2>No Movies Found</h2>
+      )}
+    </div>  
     </>
   );
 }
