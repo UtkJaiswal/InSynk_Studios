@@ -1,6 +1,6 @@
-## Movie Search Web Application
+# Movie Search Web Application
 
-# The following web application is a movie searching application with following features
+## The following web application is a movie searching application with following features
 
 -   Shows the most recent movies on initial visit
 
@@ -12,7 +12,7 @@
 
 
 
-# Steps to run the peoject
+## Steps to run the project
 
 -   Download the folder in your local machine
 
